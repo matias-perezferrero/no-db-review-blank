@@ -4,6 +4,17 @@ import "./List.css";
 
 export default class List extends Component {
   render() {
-    return <div>I feel empty inside</div>;
+    const mappedCoins = this.props.coins.map(coin => {
+      return (
+        <Coin
+          key={coin.id}
+          coin={coin}
+          deleteCoin={this.props.deleteCoin}
+          setEditing={this.props.setEditing}
+          id={coin.id}
+        />
+      );
+    });
+    return <div className="list-cointainer">{mappedCoins}</div>;
   }
 }
